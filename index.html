@@ -1,334 +1,995 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anurag Patil — Software Developer</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Anurag Patil — AI/ML Engineer, Software Engineer, Agentic AI and Intelligent Automation." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <title>Anurag Patil — AI/ML Engineer</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090909;
+      --panel: #0d0d0d;
+      --panel-2: #111111;
+      --border: #242424;
+      --text: #f1f1f1;
+      --muted: #858585;
+      --soft: #b7b7b7;
+      --accent: #d6ff3f;
+      --accent-soft: rgba(214,255,63,.10);
+      --max: 1180px;
+    }
 
-<style>
+    * { box-sizing: border-box; scroll-behavior: smooth; }
 
-/* ===== ROOT ===== */
-:root{
-  --bg:#020617;
-  --card:rgba(255,255,255,0.04);
-  --border:rgba(255,255,255,0.08);
-  --text:#e2e8f0;
-  --muted:#94a3b8;
-  --primary:#38bdf8;
-}
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 80% 10%, rgba(255,255,255,.035), transparent 25%),
+        radial-gradient(circle at 20% 70%, rgba(214,255,63,.018), transparent 25%),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "SF Pro Display",
+                   "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.65;
+    }
 
-/* ===== GLOBAL ===== */
-*{margin:0;padding:0;box-sizing:border-box;}
-body{
-  font-family:'Inter',sans-serif;
-  background:radial-gradient(circle at top,#0f172a,#020617);
-  color:var(--text);
-  line-height:1.6;
-}
+    a { color: inherit; text-decoration: none; }
 
-.container{
-  max-width:1100px;
-  margin:auto;
-  padding:0 20px;
-}
+    ::selection {
+      background: var(--accent);
+      color: #000;
+    }
 
-/* ===== NAVBAR ===== */
-header{
-  position:sticky;
-  top:0;
-  background:rgba(2,6,23,0.7);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--border);
-}
+    .layout {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 255px 1fr;
+    }
 
-.nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  height:70px;
-}
+    /* SIDEBAR */
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      border-right: 1px solid var(--border);
+      padding: 42px 24px 28px;
+      display: flex;
+      flex-direction: column;
+      background: rgba(8,8,8,.88);
+      backdrop-filter: blur(18px);
+      z-index: 20;
+    }
 
-.nav a{
-  margin-left:25px;
-  color:var(--muted);
-  text-decoration:none;
-  transition:0.3s;
-}
-.nav a:hover{color:var(--primary);}
+    .identity h1 {
+      font-size: 17px;
+      line-height: 1.2;
+      margin: 0 0 5px;
+      letter-spacing: -.02em;
+    }
 
-/* ===== HERO ===== */
-.hero{
-  padding:120px 0;
-}
+    .identity .degree {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
 
-.hero-grid{
-  display:grid;
-  grid-template-columns:1.2fr 1fr;
-  align-items:center;
-  gap:50px;
-}
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 18px;
+      color: var(--soft);
+      font-size: 12px;
+    }
 
-.hero h1{
-  font-size:54px;
-  font-weight:700;
-}
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 12px rgba(214,255,63,.45);
+    }
 
-.hero h2{
-  color:var(--primary);
-  margin-top:10px;
-}
+    nav {
+      margin-top: 50px;
+    }
 
-.hero p{
-  margin:15px 0;
-  color:var(--muted);
-}
+    nav a {
+      display: block;
+      color: #777;
+      font-size: 13px;
+      padding: 10px 12px;
+      margin: 2px 0;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      transition: .2s ease;
+    }
 
-.btn{
-  padding:12px 22px;
-  border-radius:8px;
-  text-decoration:none;
-  font-size:14px;
-  transition:0.3s;
-}
+    nav a:hover,
+    nav a.active {
+      color: #fff;
+      background: #141414;
+      border-color: #202020;
+    }
 
-.primary{
-  background:var(--primary);
-  color:#000;
-  box-shadow:0 0 20px rgba(56,189,248,0.5);
-}
+    nav a::before {
+      content: "•";
+      margin-right: 10px;
+      color: #555;
+    }
 
-.primary:hover{
-  transform:translateY(-2px);
-}
+    .side-bottom {
+      margin-top: auto;
+      display: grid;
+      gap: 8px;
+    }
 
-.outline{
-  border:1px solid var(--primary);
-  color:var(--primary);
-}
+    .side-bottom a {
+      color: #858585;
+      font-size: 12px;
+      padding: 5px 0;
+    }
 
-.hero img{
-  width:280px;
-  height:280px;
-  border-radius:50%;
-  border:3px solid var(--primary);
-  box-shadow:0 0 40px rgba(56,189,248,0.4);
-}
+    .side-bottom a:hover { color: white; }
 
-/* ===== SECTION ===== */
-.section{
-  padding:100px 0;
-}
+    .theme-note {
+      margin-top: 12px;
+      color: #626262;
+      font-size: 11px;
+    }
 
-.section h2{
-  font-size:30px;
-  margin-bottom:20px;
-}
+    /* MAIN */
+    main {
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
 
-/* ===== GRID ===== */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:25px;
-}
+    section {
+      padding: 88px 7vw;
+      border-bottom: 1px solid var(--border);
+      scroll-margin-top: 20px;
+    }
 
-/* ===== CARD ===== */
-.card{
-  background:var(--card);
-  padding:25px;
-  border-radius:12px;
-  border:1px solid var(--border);
-  transition:0.4s;
-}
+    .eyebrow {
+      color: #525252;
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
 
-.card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 0 25px rgba(56,189,248,0.2);
-}
+    h2 {
+      font-size: clamp(32px, 4vw, 50px);
+      line-height: 1.05;
+      letter-spacing: -.045em;
+      margin: 0 0 18px;
+    }
 
-/* ===== TAGS ===== */
-.tags span{
-  display:inline-block;
-  background:rgba(56,189,248,0.15);
-  color:var(--primary);
-  padding:5px 10px;
-  margin:5px 5px 0 0;
-  border-radius:6px;
-  font-size:12px;
-}
+    .lead {
+      max-width: 760px;
+      color: #969696;
+      font-size: 17px;
+      line-height: 1.75;
+    }
 
-/* ===== SKILLS ===== */
-.skills{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:20px;
-}
+    .availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 28px;
+      padding: 9px 14px;
+      border: 1px solid #282828;
+      border-radius: 7px;
+      color: #aaa;
+      font-size: 12px;
+      background: rgba(255,255,255,.015);
+    }
 
-.skills div{
-  background:var(--card);
-  padding:20px;
-  border-radius:10px;
-}
+    .availability strong { color: #eee; font-weight: 500; }
 
-/* ===== CONTACT ===== */
-form{
-  max-width:400px;
-  margin-top:20px;
-}
+    .hero {
+      min-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
 
-input, textarea{
-  width:100%;
-  margin:10px 0;
-  padding:12px;
-  border-radius:6px;
-  border:1px solid var(--border);
-  background:#020617;
-  color:white;
-}
+    .hero h2 {
+      font-size: clamp(46px, 7vw, 86px);
+      max-width: 900px;
+    }
 
-button{
-  padding:12px;
-  border:none;
-  background:var(--primary);
-  border-radius:6px;
-  cursor:pointer;
-}
+    .hero h2 span {
+      color: #777;
+    }
 
-/* ===== FOOTER ===== */
-footer{
-  text-align:center;
-  padding:30px;
-  border-top:1px solid var(--border);
-  color:var(--muted);
-}
+    /* EXPERIENCE */
+    .experience-card {
+      border: 1px solid #34321e;
+      background: linear-gradient(120deg, rgba(214,255,63,.035), rgba(255,255,255,.01));
+      border-radius: 9px;
+      padding: 24px;
+      margin-top: 32px;
+    }
 
-/* ===== RESPONSIVE ===== */
-@media(max-width:768px){
-  .hero-grid{
-    grid-template-columns:1fr;
-    text-align:center;
-  }
-}
+    .experience-card .label {
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
 
-</style>
+    .experience-title {
+      font-size: 18px;
+      margin: 8px 0 3px;
+    }
+
+    .experience-meta {
+      color: #777;
+      font-size: 12px;
+      margin-bottom: 13px;
+    }
+
+    .experience-card p {
+      color: #929292;
+      margin: 0;
+      max-width: 800px;
+    }
+
+    /* STATS */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 40px;
+    }
+
+    .stat {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      min-height: 105px;
+      background: rgba(255,255,255,.008);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 27px;
+      letter-spacing: -.04em;
+    }
+
+    .stat span {
+      display: block;
+      color: #777;
+      font-size: 12px;
+      margin-top: 4px;
+    }
+
+    /* PROJECTS */
+    .section-intro {
+      color: #777;
+      margin: -4px 0 32px;
+      font-size: 15px;
+    }
+
+    .project {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin: 14px 0;
+      overflow: hidden;
+      background: rgba(255,255,255,.008);
+      transition: transform .2s ease, border-color .2s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-2px);
+      border-color: #393939;
+    }
+
+    .project-head {
+      padding: 23px 25px 8px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .project h3 {
+      margin: 0;
+      font-size: 19px;
+      letter-spacing: -.02em;
+    }
+
+    .project-year {
+      color: #555;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .project-sub {
+      padding: 0 25px;
+      color: #6f6f6f;
+      font-size: 12px;
+    }
+
+    .project-body {
+      padding: 8px 25px 25px;
+    }
+
+    .project-body p {
+      color: #919191;
+      font-size: 13px;
+      margin: 0 0 15px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .tag {
+      padding: 5px 9px;
+      border: 1px solid #2a2a2a;
+      border-radius: 5px;
+      color: #777;
+      font-size: 11px;
+    }
+
+    .tag.highlight {
+      color: var(--accent);
+      border-color: rgba(214,255,63,.25);
+      background: var(--accent-soft);
+    }
+
+    .project-links {
+      display: flex;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .project-links a {
+      color: #aaa;
+      font-size: 12px;
+    }
+
+    .project-links a:hover { color: white; }
+
+    /* SKILLS */
+    .skill-group {
+      padding: 25px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .skill-group:first-of-type { margin-top: 32px; }
+
+    .skill-label {
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: .13em;
+      font-size: 10px;
+      margin-bottom: 14px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill {
+      border: 1px solid #292929;
+      background: #101010;
+      border-radius: 5px;
+      padding: 7px 11px;
+      color: #a0a0a0;
+      font-size: 12px;
+    }
+
+    .skill.strong {
+      color: #ddd;
+      border-color: #373737;
+    }
+
+    /* ACHIEVEMENTS */
+    .achievement {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 25px;
+      padding: 25px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .achievement .type {
+      color: #555;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+
+    .achievement h3 {
+      margin: 0 0 5px;
+      font-size: 17px;
+    }
+
+    .achievement p {
+      margin: 0;
+      color: #777;
+      font-size: 13px;
+    }
+
+    /* CONTACT */
+    .contact-grid {
+      margin-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-row {
+      display: grid;
+      grid-template-columns: 120px 1fr 30px;
+      gap: 25px;
+      align-items: center;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .contact-row .label {
+      color: #555;
+      font-size: 12px;
+    }
+
+    .contact-row .value {
+      color: #ddd;
+      font-size: 14px;
+    }
+
+    .arrow {
+      color: #555;
+      text-align: right;
+    }
+
+    .education {
+      margin-top: 60px;
+    }
+
+    .education h3 {
+      margin: 0 0 4px;
+      font-size: 18px;
+    }
+
+    .education p {
+      margin: 0;
+      color: #777;
+      font-size: 13px;
+    }
+
+    .other {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 28px;
+    }
+
+    footer {
+      padding: 28px 7vw 40px;
+      color: #4d4d4d;
+      font-size: 11px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* MOBILE */
+    .mobile-top {
+      display: none;
+    }
+
+    @media (max-width: 850px) {
+      .layout { display: block; }
+
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        padding: 15px 18px;
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .identity .degree,
+      .status,
+      .side-bottom,
+      nav { display: none; }
+
+      .mobile-top { display: block; color: #666; font-size: 11px; }
+
+      section { padding: 75px 7vw; }
+
+      .hero { min-height: 80vh; padding-top: 120px; }
+
+      .stats { grid-template-columns: repeat(2, 1fr); }
+
+      .achievement { grid-template-columns: 1fr; gap: 7px; }
+
+      .contact-row { grid-template-columns: 80px 1fr 20px; gap: 10px; }
+
+      footer { padding-left: 7vw; padding-right: 7vw; }
+    }
+
+    @media (max-width: 520px) {
+      .stats { grid-template-columns: 1fr 1fr; }
+      .stat { padding: 14px; min-height: 90px; }
+      .stat strong { font-size: 22px; }
+      .project-head { padding: 19px 18px 7px; }
+      .project-sub, .project-body { padding-left: 18px; padding-right: 18px; }
+      h2 { font-size: 36px; }
+    }
+  </style>
 </head>
 
 <body>
+  <div class="layout">
 
-<header>
-  <div class="container nav">
-    <h3>Anurag</h3>
-    <div>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </div>
-</header>
+    <aside class="sidebar">
+      <div>
+        <div class="identity">
+          <h1>Anurag Patil</h1>
+          <div class="degree">Computer Engineering · MMCOE<br>Pune, India</div>
+        </div>
 
-<section class="hero">
-  <div class="container hero-grid">
-    <div>
-      <h1>Anurag Patil</h1>
-      <h2 id="typing"></h2>
-      <p>Building scalable systems and solving real-world problems</p>
+        <div class="status">
+          <span class="dot"></span>
+          <span>AI / Automation Intern · Athena Automations</span>
+        </div>
 
-      <a href="#projects" class="btn primary">View Projects</a>
-      <a href="#contact" class="btn outline">Contact Me</a>
-    </div>
-
-    <div>
-      <img src="profile.png">
-    </div>
-  </div>
-</section>
-
-<section id="about" class="section">
-  <div class="container">
-    <h2>About Me</h2>
-    <p>Backend-focused developer specializing in Java, DBMS, and scalable systems.</p>
-  </div>
-</section>
-
-<section id="projects" class="section">
-  <div class="container">
-    <h2>Projects</h2>
-    <div class="grid">
-
-      <div class="card">
-        <h3>Attendance System</h3>
-        <p>Cloud-based real-time tracking system.</p>
-        <div class="tags"><span>SQL</span><span>MongoDB</span></div>
+        <nav>
+          <a href="#profile">Profile</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#achievements">Achievements</a>
+          <a href="#contact">Contact</a>
+          <a href="Anurag_Patil_CV_Updated.pdf" target="_blank">Résumé ↗</a>
+        </nav>
       </div>
 
-      <div class="card">
-        <h3>Coding Judge</h3>
-        <p>OOP modular evaluation system.</p>
-        <div class="tags"><span>Java</span></div>
+      <div class="side-bottom">
+        <a href="https://github.com/anuragpatil1729" target="_blank">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/anurag-patil-5929961b8/" target="_blank">LinkedIn ↗</a>
+        <div class="theme-note">● Dark / Minimal / Systems-focused</div>
       </div>
 
-      <div class="card">
-        <h3>Library System</h3>
-        <p>Database with audit logging.</p>
-        <div class="tags"><span>MySQL</span></div>
-      </div>
+      <div class="mobile-top">AI/ML · Agentic AI · Automation</div>
+    </aside>
 
-    </div>
+    <main>
+
+      <!-- PROFILE -->
+      <section id="profile" class="hero">
+        <div class="eyebrow">PROFILE</div>
+        <h2>Building at the intersection of <span>AI, software & intelligent automation.</span></h2>
+
+        <p class="lead">
+          AI/ML and software engineering student with a <strong>9.15 CGPA</strong>.
+          I build end-to-end systems across agentic AI, reinforcement learning,
+          multimodal AI, optimization, distributed systems, blockchain, mobile and full-stack development.
+        </p>
+
+        <div class="availability">
+          <span class="dot"></span>
+          <span>Currently working at <strong>Athena Automations</strong> · AI/Automation Intern</span>
+        </div>
+
+        <div class="stats">
+          <div class="stat"><strong>9.15</strong><span>CGPA</span></div>
+          <div class="stat"><strong>3</strong><span>Hackathon finishes</span></div>
+          <div class="stat"><strong>10+</strong><span>Major projects</span></div>
+          <div class="stat"><strong>AI</strong><span>Primary focus</span></div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section id="experience">
+        <div class="eyebrow">EXPERIENCE</div>
+        <h2>Currently working on</h2>
+        <p class="section-intro">Turning AI concepts into practical automation systems.</p>
+
+        <div class="experience-card">
+          <div class="label">● Current role</div>
+          <div class="experience-title">Athena Automations — AI/Automation Intern</div>
+          <div class="experience-meta">July 2026 – Present</div>
+          <p>
+            Working on AI-driven automation and intelligent software workflows,
+            contributing to practical automation solutions and applying AI/ML and
+            software engineering concepts to real-world problems.
+          </p>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects">
+        <div class="eyebrow">PROJECTS</div>
+        <h2>Selected work</h2>
+        <p class="section-intro">Systems built around real problems — from autonomous fleets to agentic AI and resilient communication.</p>
+
+        <article class="project">
+          <div class="project-head">
+            <h3>SWARMRoute</h3>
+            <span class="project-year">2026</span>
+          </div>
+          <div class="project-sub">AI Fleet Optimization · OR-Tools · PPO · ML</div>
+          <div class="project-body">
+            <p>
+              Autonomous AI fleet optimization and disruption-recovery platform combining
+              CVRPTW optimization, ML predictors, PPO reinforcement learning, decentralized
+              vehicle coordination, mesh communication and fuel/CO₂ simulation.
+            </p>
+            <div class="tags">
+              <span class="tag highlight">PPO Reinforcement Learning</span>
+              <span class="tag">OR-Tools</span>
+              <span class="tag">Python</span>
+              <span class="tag">Stable-Baselines3</span>
+              <span class="tag">NetworkX</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/anuragpatil1729/SWARMRoute" target="_blank">GitHub ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-head">
+            <h3>OrkaAI</h3>
+            <span class="project-year">2026</span>
+          </div>
+          <div class="project-sub">Agentic AI · Gemini · Web · Flutter · CLI</div>
+          <div class="project-body">
+            <p>
+              Autonomous AI execution layer that converts user goals into dynamic plans,
+              executes tools with approval gates, verifies outcomes and produces auditable
+              execution receipts across web, mobile and terminal clients.
+            </p>
+            <div class="tags">
+              <span class="tag highlight">Agentic AI</span>
+              <span class="tag">Gemini</span>
+              <span class="tag">React</span>
+              <span class="tag">Flutter</span>
+              <span class="tag">Express</span>
+              <span class="tag">Google Workspace</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/anuragpatil1729/orkaAI" target="_blank">GitHub ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-head">
+            <h3>AgentMesh</h3>
+            <span class="project-year">2026</span>
+          </div>
+          <div class="project-sub">Multi-Agent Systems · Algorand · x402 · FastAPI</div>
+          <div class="project-body">
+            <p>
+              Multi-agent orchestration platform where specialized AI services bid for tasks,
+              execute a DAG in parallel and settle agent payments using x402, Algorand and PyTeal smart contracts.
+            </p>
+            <div class="tags">
+              <span class="tag highlight">Multi-Agent AI</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">Spring Boot</span>
+              <span class="tag">Algorand</span>
+              <span class="tag">PyTeal</span>
+              <span class="tag">Redis</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/anuragpatil1729/AgentMesh" target="_blank">GitHub ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-head">
+            <h3>VariMitra</h3>
+            <span class="project-year">2026</span>
+          </div>
+          <div class="project-sub">Offline-First · Web Bluetooth · Mesh Networking · PWA</div>
+          <div class="project-body">
+            <p>
+              Multi-hop mesh SOS and disaster-management system designed for situations where
+              cellular networks fail, with store-and-forward packets, offline chat, helper response
+              and emergency broadcasts.
+            </p>
+            <div class="tags">
+              <span class="tag highlight">Resilient Networking</span>
+              <span class="tag">Web Bluetooth</span>
+              <span class="tag">Supabase</span>
+              <span class="tag">React</span>
+              <span class="tag">IndexedDB</span>
+              <span class="tag">PWA</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/anuragpatil1729/VariMitra" target="_blank">GitHub ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-head">
+            <h3>Blind-Spot — Multimodal Video Intelligence</h3>
+            <span class="project-year">2026</span>
+          </div>
+          <div class="project-sub">Video Search · LLaVA · Whisper · OCR · RAG</div>
+          <div class="project-body">
+            <p>
+              “Google Search for Video Moments” — a multimodal pipeline using scene detection,
+              vision captioning, speech transcription, OCR, embeddings, ChromaDB and reranking
+              to find specific moments inside long videos.
+            </p>
+            <div class="tags">
+              <span class="tag highlight">Multimodal AI</span>
+              <span class="tag">LLaVA</span>
+              <span class="tag">Whisper</span>
+              <span class="tag">ChromaDB</span>
+              <span class="tag">Semantic Search</span>
+              <span class="tag">Streamlit</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-head">
+            <h3>EDI Validator — OpenEnv RL Environment</h3>
+            <span class="project-year">2026</span>
+          </div>
+          <div class="project-sub">Reinforcement Learning · Gymnasium · OpenEnv · FastAPI</div>
+          <div class="project-body">
+            <p>
+              Production-oriented RL environment for validating EDI X12 payloads, with correctness-based
+              rewards and reward-trajectory drift detection.
+            </p>
+            <div class="tags">
+              <span class="tag highlight">Reinforcement Learning</span>
+              <span class="tag">Gymnasium</span>
+              <span class="tag">OpenEnv</span>
+              <span class="tag">NumPy</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">Pytest</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-head">
+            <h3>AlumniConnect</h3>
+            <span class="project-year">2026</span>
+          </div>
+          <div class="project-sub">Java · JDBC · MySQL · DSA · TCP</div>
+          <div class="project-body">
+            <p>
+              Student/alumni mentoring portal with role-based dashboards, mentorship lifecycle management,
+              search, authentication, TCP socket services and automated testing.
+            </p>
+            <div class="tags">
+              <span class="tag">Java 17</span>
+              <span class="tag">JDBC</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">JUnit 5</span>
+              <span class="tag">Data Structures</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/anuragpatil1729/AlumniConnect" target="_blank">GitHub ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-head">
+            <h3>Jarvis AI Assistant</h3>
+            <span class="project-year">2026</span>
+          </div>
+          <div class="project-sub">Python · Gemini · Voice · Desktop Automation</div>
+          <div class="project-body">
+            <p>
+              Voice/text AI assistant with persistent memory, tasks, web search, macOS application control,
+              file operations, screenshots, alarms and automation capabilities.
+            </p>
+            <div class="tags">
+              <span class="tag highlight">Gemini</span>
+              <span class="tag">Python</span>
+              <span class="tag">Voice AI</span>
+              <span class="tag">Automation</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills">
+        <div class="eyebrow">SKILLS</div>
+        <h2>Toolkit</h2>
+        <p class="section-intro">Languages, systems, AI/ML frameworks and technologies I use regularly.</p>
+
+        <div class="skill-group">
+          <div class="skill-label">Programming</div>
+          <div class="skill-tags">
+            <span class="skill strong">Python</span><span class="skill strong">Java</span>
+            <span class="skill strong">TypeScript</span><span class="skill">JavaScript</span>
+            <span class="skill">Dart</span><span class="skill">Kotlin</span><span class="skill">C++</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-label">AI / ML</div>
+          <div class="skill-tags">
+            <span class="skill strong">Machine Learning</span><span class="skill strong">Reinforcement Learning</span>
+            <span class="skill strong">PPO</span><span class="skill strong">Agentic AI</span>
+            <span class="skill">RAG</span><span class="skill">Multimodal AI</span>
+            <span class="skill">Computer Vision</span><span class="skill">OCR</span>
+            <span class="skill">Embeddings</span><span class="skill">Semantic Search</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-label">Frameworks & AI Tools</div>
+          <div class="skill-tags">
+            <span class="skill">PyTorch</span><span class="skill">scikit-learn</span>
+            <span class="skill">Stable-Baselines3</span><span class="skill">Gymnasium</span>
+            <span class="skill">OpenEnv</span><span class="skill">FastAPI</span>
+            <span class="skill">Spring Boot</span><span class="skill">React</span>
+            <span class="skill">Next.js</span><span class="skill">Flutter</span>
+            <span class="skill">Gemini</span><span class="skill">LLaVA</span>
+            <span class="skill">Whisper</span><span class="skill">Ollama</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-label">Systems / Backend / Data</div>
+          <div class="skill-tags">
+            <span class="skill">REST APIs</span><span class="skill">WebSockets</span>
+            <span class="skill">OAuth 2.0</span><span class="skill">PostgreSQL</span>
+            <span class="skill">MySQL</span><span class="skill">Supabase</span>
+            <span class="skill">Firebase</span><span class="skill">Redis</span>
+            <span class="skill">ChromaDB</span><span class="skill">Docker</span>
+            <span class="skill">Linux</span><span class="skill">Git</span>
+            <span class="skill">AWS</span><span class="skill">OR-Tools</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ACHIEVEMENTS -->
+      <section id="achievements">
+        <div class="eyebrow">ACHIEVEMENTS</div>
+        <h2>Recognition & activities</h2>
+
+        <div class="achievement">
+          <div class="type">Hackathon</div>
+          <div>
+            <h3>Avinya 2026 — IEEE MMCOE · Winner</h3>
+            <p>Won the competition with a technology-focused project.</p>
+          </div>
+        </div>
+
+        <div class="achievement">
+          <div class="type">Competition</div>
+          <div>
+            <h3>Varithon — MMCOE · Winner</h3>
+            <p>Winner of the Varithon competition.</p>
+          </div>
+        </div>
+
+        <div class="achievement">
+          <div class="type">Hackathon</div>
+          <div>
+            <h3>Xenia — PICT · Runner-up</h3>
+            <p>Runner-up in the Xenia competition at PICT.</p>
+          </div>
+        </div>
+
+        <div class="achievement">
+          <div class="type">In-house Project Competition</div>
+          <div>
+            <h3>MMCOE · 2026</h3>
+            <p>Selected for 3-day live deployment within the college.</p>
+          </div>
+        </div>
+
+        <div class="achievement">
+          <div class="type">Other activities</div>
+          <div>
+            <h3>Communication · Football · Volunteering</h3>
+            <p>Strong communication skills, active interest in football and volunteering activities.</p>
+          </div>
+        </div>
+
+        <div class="other">
+          <span class="tag">CGPA 9.15</span>
+          <span class="tag">Communication</span>
+          <span class="tag">Football</span>
+          <span class="tag">Volunteering</span>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <div class="eyebrow">CONTACT</div>
+        <h2>Let's build something.</h2>
+        <p class="lead">
+          Open to internships, collaborations, AI/ML opportunities and interesting engineering problems.
+        </p>
+
+        <div class="contact-grid">
+          <a class="contact-row" href="mailto:anurag151006@gmail.com">
+            <span class="label">Mail</span>
+            <span class="value">anurag151006@gmail.com</span>
+            <span class="arrow">↗</span>
+          </a>
+
+          <a class="contact-row" href="tel:+918855897466">
+            <span class="label">Mobile</span>
+            <span class="value">+91 88558 97466</span>
+            <span class="arrow">↗</span>
+          </a>
+
+          <a class="contact-row" href="https://github.com/anuragpatil1729" target="_blank">
+            <span class="label">GitHub</span>
+            <span class="value">github.com/anuragpatil1729</span>
+            <span class="arrow">↗</span>
+          </a>
+
+          <a class="contact-row" href="https://www.linkedin.com/in/anurag-patil-5929961b8/" target="_blank">
+            <span class="label">LinkedIn</span>
+            <span class="value">linkedin.com/in/anurag-patil-5929961b8</span>
+            <span class="arrow">↗</span>
+          </a>
+
+          <a class="contact-row" href="https://anuragpatil.in">
+            <span class="label">Website</span>
+            <span class="value">anuragpatil.in</span>
+            <span class="arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="education">
+          <div class="eyebrow">EDUCATION</div>
+          <h3>B.Tech / Engineering — Marathwada Mitra Mandal's College of Engineering</h3>
+          <p>Pune · CGPA 9.15</p>
+        </div>
+      </section>
+
+      <footer>
+        <span>© 2026 Anurag Patil</span>
+        <span>Built with HTML · CSS · JavaScript</span>
+      </footer>
+
+    </main>
   </div>
-</section>
 
-<section id="skills" class="section">
-  <div class="container">
-    <h2>Skills</h2>
-    <div class="skills">
-      <div>Java, SQL</div>
-      <div>MySQL, MongoDB</div>
-      <div>OOP, DBMS</div>
-      <div>Git, VS Code</div>
-    </div>
-  </div>
-</section>
+  <script>
+    // Highlight the sidebar item for the section currently in view.
+    const sections = document.querySelectorAll("main section[id]");
+    const links = document.querySelectorAll("nav a[href^='#']");
 
-<section id="contact" class="section">
-  <div class="container">
-    <h2>Contact</h2>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          links.forEach(link => link.classList.remove("active"));
+          const active = document.querySelector(`nav a[href="#${entry.target.id}"]`);
+          if (active) active.classList.add("active");
+        }
+      });
+    }, { rootMargin: "-35% 0px -55% 0px", threshold: 0 });
 
-    <p>Email: your.email@example.com</p>
-
-    <form>
-      <input placeholder="Name">
-      <input placeholder="Email">
-      <textarea placeholder="Message"></textarea>
-      <button>Send</button>
-    </form>
-
-  </div>
-</section>
-
-<footer>
-  <p>© 2026 Anurag Patil</p>
-</footer>
-
-<script>
-const words=["Software Developer","Backend Engineer","Problem Solver"];
-let i=0,j=0,del=false;
-
-function type(){
-  let el=document.getElementById("typing");
-  let word=words[i];
-
-  if(!del && j<=word.length) el.textContent=word.substring(0,j++);
-  else if(del && j>=0) el.textContent=word.substring(0,j--);
-
-  if(j===word.length) del=true;
-  if(j===0){ del=false; i=(i+1)%words.length; }
-
-  setTimeout(type,del?50:100);
-}
-type();
-</script>
-
+    sections.forEach(section => observer.observe(section));
+  </script>
 </body>
 </html>
